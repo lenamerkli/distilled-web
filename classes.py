@@ -224,7 +224,7 @@ class ToolMessage:
 
 
 class Conversation:
-    def __init__(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage]]):
+    def __init__(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]):
         self._messages = messages
 
     def __str__(self) -> str:
@@ -237,11 +237,11 @@ class Conversation:
         return {'messages': [i.__dict__() for i in self.messages]}
 
     @property
-    def messages(self) -> list[t.Union[SystemMessage, UserMessage, AssistantMessage]]:
+    def messages(self) -> list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]:
         return self._messages
 
     @messages.setter
-    def messages(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage]]) -> None:
+    def messages(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]) -> None:
         self._messages = messages
 
 
