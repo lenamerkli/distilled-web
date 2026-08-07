@@ -1,0 +1,14 @@
+from pathlib import Path
+
+__all__ = ['TMP_LOCATION', 'BASE_LOCATION', 'AUDIO_LOCATION', 'VIDEO_LOCATION', 'IMAGE_LOCATION', 'OTHER_MEDIA_LOCATION', 'TEXT_ENTRY_LOCATION', 'CHAT_ENTRY_LOCATION', 'USED_SOURCES_LOCATION']
+
+
+TMP_LOCATION = Path('/tmp/distilled-web/')
+BASE_LOCATION = Path('/home/lena/Documents/huggingface/distilled-web/')
+AUDIO_LOCATION = BASE_LOCATION / 'media/audio/'
+VIDEO_LOCATION = BASE_LOCATION / 'media/video/'
+IMAGE_LOCATION = BASE_LOCATION / 'media/image/'
+OTHER_MEDIA_LOCATION = BASE_LOCATION / 'media/other/'
+TEXT_ENTRY_LOCATION = BASE_LOCATION / 'data/pretrain/'
+CHAT_ENTRY_LOCATION = BASE_LOCATION / 'data/train/'
+USED_SOURCES_LOCATION = BASE_LOCATION / 'sources.txt'
