@@ -26,7 +26,7 @@ def _register_source(source: str) -> None:
     _seen_sources.add(source)
 
 
-FILE_SIZE_LIMIT = 4_000_000_000
+FILE_SIZE_LIMIT = 400_000_000
 
 CHAT_SCHEMA = pa.schema([
     ('messages',     pa.string()),
