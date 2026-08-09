@@ -10557,3 +10557,14 @@ https://github.com/shedaniel/cloth-config/tree/v26.2
 https://github.com/architectury/architectury
 https://github.com/caffeinemc/lithium-fabric
 https://github.com/TerraformersMC/ModMenu
+https://github.com/GenderDysphoria/GenderDysphoria.fyi
+https://github.com/sakura-ryoko/litematica
+https://github.com/soullessjump/gitmatica
+https://github.com/Creators-of-Aeronautics/Simulated-Project
+https://github.com/shedaniel/RoughlyEnoughItems/tree/26.2
+https://github.com/unslothai/unsloth/tree/main
+https://github.com/swiss-ai/apertus-finetuning-recipes
+https://github.com/AppliedEnergistics/Applied-Energistics-2/tree/main
+https://github.com/AppliedEnergistics/Applied-Energistics-2/tree/fabric/1.20.1
+https://github.com/AppliedEnergistics/Applied-Energistics-2/tree/forge/1.20.1
+https://github.com/earendil-works/pi/tree/main
