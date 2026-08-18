@@ -10569,3 +10569,9 @@ https://github.com/AppliedEnergistics/Applied-Energistics-2/tree/fabric/1.20.1
 https://github.com/AppliedEnergistics/Applied-Energistics-2/tree/forge/1.20.1
 https://github.com/earendil-works/pi/tree/main
 https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1999/404/20240303/de/html/fedlex-data-admin-ch-eli-cc-1999-404-20240303-de-html-10.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/de/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-de-html-2.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20260101/de/html/fedlex-data-admin-ch-eli-cc-27-317_321_377-20260101-de-html-12.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/54/757_781_799/20260612/de/html/fedlex-data-admin-ch-eli-cc-54-757_781_799-20260612-de-html.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2010/267/20250401/de/html/fedlex-data-admin-ch-eli-cc-2010-267-20250401-de-html-4.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/de/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-de-html-1.html
+https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1/600_559_600/18750702/de/html/fedlex-data-admin-ch-eli-cc-1-600_559_600-18750702-de-html-6.html

@@ -3,9 +3,9 @@ sys.path.extend(['/home/lena/Documents/python/distilled-web', '/home/lena/Docume
 from shared import *
 
 
-DE_PROMPT_ART = '<p>\n  Wie lautet Artikel %ID% der Schweizerischen Bundesverfassung?\n</p>'
-FR_PROMPT_ART = '<p>\n  Quel est le contenu de l\'article %ID% de la Constitution fédérale suisse?\n</p>'
-IT_PROMPT_ART = '<p>\n  Qual è il testo dell\'articolo %ID% della Costituzione federale svizzera?\n</p>'
+DE_PROMPT_ART = '<p>\n  Wie lautet Artikel %ID% des Schweizerischen Datenschutzgesetzes?\n</p>'
+FR_PROMPT_ART = '<p>\n  Quel est le contenu de l\'article %ID% de la loi suisse sur la protection des données?\n</p>'
+IT_PROMPT_ART = '<p>\n  Qual è il testo dell\'articolo %ID% della legge svizzera sulla protezione dei dati?\n</p>'
 
 
 def parse(url: str):
