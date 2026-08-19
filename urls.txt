@@ -10637,3 +10637,4 @@ https://ksalp.ch/lernsets/vorschau/v5PGt7JU
 https://ksalp.ch/lernsets/vorschau/vKAKsAy5
 https://ksalp.ch/lernsets/vorschau/y0Ziopnp
 https://ksalp.ch/lernsets/vorschau/zBQ3GJlj
+https://huggingface.co/datasets/liechticonsulting/fedlex/resolve/main/fedlex_dataset.csv

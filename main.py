@@ -5,6 +5,7 @@ from importlib import import_module
 from config import USED_SOURCES_LOCATION
 from writer import close_all
 from time import sleep
+from traceback import print_exc
 
 
 def order_urls(urls: list[str]) -> list[str]:
@@ -123,6 +124,7 @@ def main():
                 processed += 1
                 print(f"  ✓ Done (parser: {module_name})")
             except Exception as e:
+                print_exc()
                 print(f"  ✗ Failed: {e}")
                 failed += 1
                 continue
