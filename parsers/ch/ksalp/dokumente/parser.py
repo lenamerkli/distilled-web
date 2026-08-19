@@ -1,0 +1,25 @@
+import sys
+sys.path.extend(['/home/lena/Documents/python/distilled-web'])
+import certifi
+from classes import *
+from writer import save
+import requests
+from config import *
+from miner_u_pro import pdf_to_markdown
+
+
+_TMP_DIR = TMP_LOCATION / 'ch.ksalp.dokumente'
+
+
+def parse(url: str):
+    download_url = url.replace('dokumente/vorschau', 'dateien/dokumente') + '/file.pdf'
+    filename = url.split('/')[-1] + '.pdf'
+    _TMP_DIR.mkdir(exist_ok=True, parents=True)
+    with requests.get(download_url, stream=True, verify=certifi.where()) as response:
+        response.raise_for_status()  # Check for request errors
+        with open(_TMP_DIR / filename, 'wb') as out_file:
+            for chunk in response.iter_content(chunk_size=8192):
+                out_file.write(chunk)
+    text = pdf_to_markdown(_TMP_DIR / filename)
+    save(TextEntry(text, url, ai_enhanced=True))
+    (_TMP_DIR / filename).unlink(missing_ok=True)
