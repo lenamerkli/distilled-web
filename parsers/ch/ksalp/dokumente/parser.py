@@ -9,6 +9,7 @@ from miner_u_pro import pdf_to_markdown
 
 
 _TMP_DIR = TMP_LOCATION / 'ch.ksalp.dokumente'
+PROMPT = 'Extract the text.'
 
 
 def parse(url: str):
@@ -22,4 +23,7 @@ def parse(url: str):
                 out_file.write(chunk)
     text = pdf_to_markdown(_TMP_DIR / filename)
     save(TextEntry(text, url, ai_enhanced=True))
+    with open(_TMP_DIR / filename, 'rb') as file:
+        content = file.read()
+    save(ChatEntry(Conversation([UserMessage([TextContent(PROMPT), MediaContent('other_media', content=content)]), AssistantMessage(TextContent(text))]), url, ai_enhanced=True))
     (_TMP_DIR / filename).unlink(missing_ok=True)
