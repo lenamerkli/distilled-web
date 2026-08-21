@@ -8,14 +8,13 @@ from config import *
 from miner_u_pro import pdf_to_markdown
 
 
-_TMP_DIR = TMP_LOCATION / 'ch.lu.ksalpenquai.-.media'
-PROMPT = 'Extrahiere den Text.'
+_TMP_DIR = TMP_LOCATION / 'ch.tgns.wp-content'
+PROMPT = 'Extract the text.'
 
 
 def parse(url: str):
-    url2 = url.rsplit('?')[0]
-    if url2.endswith('.pdf'):
-        filename = url2.split('/')[-1]
+    if url.endswith('.pdf'):
+        filename = url.split('/')[-1]
         _TMP_DIR.mkdir(exist_ok=True, parents=True)
         with requests.get(url, stream=True, verify=certifi.where()) as response:
             response.raise_for_status()
@@ -28,3 +27,5 @@ def parse(url: str):
             content = file.read()
         save(ChatEntry(Conversation([UserMessage([TextContent(PROMPT), MediaContent('other_media', content=content)]), AssistantMessage(TextContent(text))]), url, ai_enhanced=True))
         (_TMP_DIR / filename).unlink(missing_ok=True)
+    else:
+        raise ValueError(f"URL {url} does not end with .pdf")
