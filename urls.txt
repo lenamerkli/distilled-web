@@ -11432,3 +11432,4 @@ https://ksreussbuehl.lu.ch/-/media/KSReussbuehl/Dokumente/Ausbildung/Lehrplaene_
 https://ksreussbuehl.lu.ch/-/media/KSReussbuehl/Dokumente/Ausbildung/Lehrplaene_2021/BG_GF_und_SF_ab_SJ_2122.pdf?rev=e6d7412a8b7b4173b56ad04211fe8e1d
 https://ksreussbuehl.lu.ch/-/media/KSReussbuehl/Dokumente/Ausbildung/Lehrplaene_2020/Lehrplan_UG_Technisches_Gestalten.pdf?rev=1705259560444183a78fb16a63df903e
 https://ksreussbuehl.lu.ch/-/media/KSReussbuehl/Dokumente/Ausbildung/Lehrplaene_2023_EF_neu/Lehrplan_EF_Bildnerisches_Gestalten_ab_2023.pdf?rev=f671909097a84f6b8b90efdb027337e0
+https://huggingface.co/datasets/scholarweave/arxiv-latex
