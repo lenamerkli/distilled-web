@@ -224,17 +224,23 @@ class ToolMessage:
 
 
 class Conversation:
-    def __init__(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]):
+    def __init__(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]], tools: t.Optional[list[dict[str, t.Any]]] = None):
         self._messages = messages
+        if not tools:
+            tools = []
+        self._tools = tools
 
     def __str__(self) -> str:
         return self.__repr__()
 
     def __repr__(self) -> str:
-        return f"Conversation(messages={self.messages})"
+        return f"Conversation(messages={self.messages}, tools={self.tools})"
 
     def __dict__(self) -> dict[str, t.Any]:
-        return {'messages': [i.__dict__() for i in self.messages]}
+        result = {'messages': [i.__dict__() for i in self.messages]}
+        if self.tools:
+            result['tools'] = self.tools
+        return result
 
     @property
     def messages(self) -> list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]:
@@ -243,6 +249,14 @@ class Conversation:
     @messages.setter
     def messages(self, messages: list[t.Union[SystemMessage, UserMessage, AssistantMessage, ToolMessage]]) -> None:
         self._messages = messages
+
+    @property
+    def tools(self) -> list[dict[str, t.Any]]:
+        return self._tools
+
+    @tools.setter
+    def tools(self, tools: list[dict[str, t.Any]]) -> None:
+        self._tools = tools
 
 
 class ChatEntry:

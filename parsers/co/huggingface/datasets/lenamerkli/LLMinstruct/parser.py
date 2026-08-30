@@ -34,9 +34,9 @@ def parse(url: str):
     for batch in pf.iter_batches(batch_size=500):
         records = batch.to_pydict()
         for i in range(len(records['messages'])):
-            msgs = _parse_messages(records['messages'][i], temp_dir)
+            msgs, tools = _parse_messages(records['messages'][i], temp_dir)
             entry = ChatEntry(
-                messages=Conversation(msgs),
+                messages=Conversation(msgs, tools),
                 source=url,
                 ai_enhanced=records['mistakes'][i]
             )
@@ -48,14 +48,24 @@ def parse(url: str):
         rmtree(temp_dir)
 
 
-def _parse_messages(msgs: list, temp_dir: Path) -> list:
+def _parse_tools(attachments: list) -> list[dict]:
+    tools = []
+    for att in attachments:
+        if att.get('type') == 'application/json/tools':
+            tools.extend(json.loads(att['value']))
+    return tools
+
+
+def _parse_messages(msgs: list, temp_dir: Path) -> tuple[list, list[dict]]:
     result = []
+    tools: list[dict] = []
     for msg in msgs:
         role = msg.get('role', '')
         content_text = msg.get('content', '')
         attachments = msg.get('attachments', [])
 
         if role == 'system':
+            tools.extend(_parse_tools(attachments))
             result.append(SystemMessage([TextContent(content_text)]))
         elif role == 'user':
             media = _parse_media(attachments, temp_dir)
@@ -68,7 +78,7 @@ def _parse_messages(msgs: list, temp_dir: Path) -> list:
             result.append(AssistantMessage(text, tool_calls if tool_calls else None))
         elif role == 'tool':
             result.append(ToolMessage([TextContent(content_text)]))
-    return result
+    return result, tools
 
 
 def _parse_tool_calls(attachments: list) -> list[ToolCall]:
