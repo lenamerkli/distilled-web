@@ -52,6 +52,7 @@ def _url_to_candidate_module_paths(url: str) -> list[str]:
     → parsers.co.huggingface.datasets.parser
     → parsers.co.huggingface.parser
     """
+    url = url.replace('~', '')
     parsed = urlparse(url)
     # Reverse domain: huggingface.co → co.huggingface
     domain_parts = parsed.netloc.split('.')
