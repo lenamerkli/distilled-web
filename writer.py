@@ -27,6 +27,7 @@ def _register_source(source: str) -> None:
 
 
 FILE_SIZE_LIMIT = 400_000_000
+FILE_ROW_LIMIT = 30_000
 
 CHAT_SCHEMA = pa.schema([
     ('messages',     pa.string()),
@@ -42,7 +43,7 @@ TEXT_SCHEMA = pa.schema([
     ('ai_enhanced',  pa.bool_()),
 ])
 
-_active_writers: dict[Path, tuple[pq.ParquetWriter, Path]] = {}
+_active_writers: dict[Path, tuple[pq.ParquetWriter, Path, int]] = {}
 
 
 def _next_shard_path(location: Path) -> Path:
@@ -54,16 +55,16 @@ def _next_shard_path(location: Path) -> Path:
     return location / f'{last_index + 1:05d}.parquet'
 
 
-def _get_writer(location: Path, schema: pa.Schema) -> pq.ParquetWriter:
+def _get_writer(location: Path, schema: pa.Schema, rows: int = 0) -> pq.ParquetWriter:
     if location in _active_writers:
-        writer, file_path = _active_writers[location]
-        if file_path.stat().st_size < FILE_SIZE_LIMIT:
+        writer, file_path, written_rows = _active_writers[location]
+        if file_path.stat().st_size < FILE_SIZE_LIMIT and written_rows + rows <= FILE_ROW_LIMIT:
             return writer
         writer.close()
         del _active_writers[location]
     file_path = _next_shard_path(location)
     writer = pq.ParquetWriter(str(file_path), schema, compression='snappy')
-    _active_writers[location] = (writer, file_path)
+    _active_writers[location] = (writer, file_path, 0)
     return writer
 
 
@@ -106,11 +107,13 @@ def save(data: t.Union[ChatEntry, TextEntry]) -> None:
     _register_source(data.source)
     location.mkdir(parents=True, exist_ok=True)
     table, schema = _to_table(data)
-    writer = _get_writer(location, schema)
+    writer = _get_writer(location, schema, rows=table.num_rows)
     writer.write_table(table)
+    writer, file_path, written_rows = _active_writers[location]
+    _active_writers[location] = (writer, file_path, written_rows + table.num_rows)
 
 
 def close_all() -> None:
-    for writer, _ in _active_writers.values():
+    for writer, _, _ in _active_writers.values():
         writer.close()
     _active_writers.clear()
