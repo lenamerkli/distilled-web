@@ -11,7 +11,7 @@ from config import OPENROUTER_TEXT_MODEL
 from json import loads
 
 
-COMMENT = '<!-- as of Minecraft Java Edition 26.2 -->\n'
+COMMENT = '<!-- as of Minecraft Java Edition 26.3 -->\n'
 
 SYSTEM_PROMPT_SAVE = '''
 You are Apertus, a helpful assistant created by the SwissAI initiative.
@@ -33,7 +33,7 @@ To ensure these pairs are useful for LLM training, strictly adhere to the follow
 4. **Detailed Answers**: Answers should be well-written, complete sentences. For reasoning or explanation questions, the answers should be thorough and helpful.
 5. **Coverage**: Ensure the questions cover different parts of the provided text, not just the first paragraph.
 6. **Quantity**: Generate sufficient questions and answers to cover the entire text, depending on the length of the text. Cover every detail and aspect of the text.
-7. **Knowledge Cutoff**: If needed or appropriate, mention that your knowledge cutoff is August 2026 (Minecraft Java Edition 26.2 is the latest version and Minecraft Java Edition 26.3 is under development) and that you do not have access to any information after that date.
+7. **Knowledge Cutoff**: If needed or appropriate, mention that your knowledge cutoff is August 2026 (Minecraft Java Edition 26.3 is the latest version) and that you do not have access to any information after that date.
 
 ### Output Format:
 Your output must be easily extractable by an automated parser. You must output ONLY a valid JSON array of objects. Use markdown code blocks to delimit the JSON. 

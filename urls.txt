@@ -11473,3 +11473,4 @@ https://sleepingrobots.com/dreams/total-browser-recall/
 https://sleepingrobots.com/dreams/unsloth-studio-strix-halo/
 https://sleepingrobots.com/dreams/voxcpm-strix-halo/
 https://sleepingrobots.com/dreams/web-browser-wrapped/
+https://huggingface.co/datasets/open-paws/reasoning-and-chat-harmony-format/resolve/main/reasoning-and-conversational-finetuning-harmony-format.jsonl
