@@ -11415,3 +11415,4 @@ https://github.com/astei/krypton
 https://github.com/RelativityMC/C2ME-fabric/tree/dev/26.3.0
 https://github.com/Sinytra/Connector
 https://github.com/earendil-works/pi/tree/main
+https://stateofopensource.ai/state-of-open-source-ai-v1-1.pdf
